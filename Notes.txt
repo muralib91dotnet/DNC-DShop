@@ -1,0 +1,7 @@
+Microservices startup:
+Either use,
+DNC-DShop.Api/DNC-DShop.Api.Next to start with
+
+Plus 7 Apis,
+starting as DNC-DShop.Services.{API-Name}
+
