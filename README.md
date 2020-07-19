@@ -132,4 +132,14 @@ scripts that might be helpful for the repeating tasks.
 ----------------
 
 You can find the list of all HTTP requests in `DShop.rest` file placed in the root folder of [DShop.Api](https://github.com/devmentors/DNC-DShop.Api) repository ([here](https://github.com/devmentors/DNC-DShop.Api/blob/master/DShop.rest)). 
-This file is compatible with [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) plugin for [Visual Studio Code](https://code.visualstudio.com). 
+This file is compatible with [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) plugin for [Visual Studio Code](https://code.visualstudio.com).
+
+My Notes:
+This project uses RabbitMq for service bus implementation
+DShop.Common has common features like logging, metrics, etc which is bascially an Infrastructure project. This needs to be split into libraries based on functions like logging, etc & to be named like Infrastructure.Logging, Infrastructure.Sagas, etc 
+
+Custom frameworks used:
+NGate: Custom gateway library & used only in DNC-DShop.Api.Next. This is available as seperate library & not part of source code.
+While, DNC-DShop.Api is Custom gateway written from scratch without any library
+Chronicle: In-memory Saga pattern library, needs to be extended to Mongo, Redis, etc. This is available as seperate library & not part of source code.
+NOTE: Service bus with inbuilt Saga as of now is NServiceBus. Here RabbitMq used as Svc bus with above Chronicle for achieving Saga pattern. 
