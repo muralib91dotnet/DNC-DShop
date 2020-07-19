@@ -1,12 +1,17 @@
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 
 namespace DShop.Services.Customers.Domain
 {
     public class CartItem
     {
+        [BsonElement(elementName: "productId")]
         public Guid ProductId { get; private set; }
+        [BsonElement(elementName: "productName")]
         public string ProductName { get; private set; }
+        [BsonElement(elementName: "unitPrice")]
         public decimal UnitPrice { get; private set; }
+        [BsonElement(elementName: "quantity")]
         public int Quantity { get; private set; }
         public decimal TotalPrice => Quantity * UnitPrice;
 

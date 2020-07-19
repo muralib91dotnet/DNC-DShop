@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DShop.Common.Types;
+using MongoDB.Bson.Serialization.Attributes;
+using Newtonsoft.Json;
 
 namespace DShop.Services.Customers.Domain
 {
@@ -9,7 +11,9 @@ namespace DShop.Services.Customers.Domain
     {
         private ISet<CartItem> _items = new HashSet<CartItem>();
         public Guid Id { get; private set; }
+        [BsonElement(elementName: "CreatedAt")]
         public DateTime CreatedAt { get; private set; }
+        [BsonElement(elementName: "Items")]
         public IEnumerable<CartItem> Items
         {
             get => _items;
@@ -25,7 +29,15 @@ namespace DShop.Services.Customers.Domain
             Id = userId;
             CreatedAt = DateTime.UtcNow;
         }
-        
+
+        //[JsonConstructor]
+        //public Cart(Guid id, DateTime createdAt, IEnumerable<CartItem> items)
+        //{
+        //    Id = id;
+        //    CreatedAt = createdAt;
+        //    Items = items;
+        //}
+
         public void Clear()
             => _items.Clear();
 

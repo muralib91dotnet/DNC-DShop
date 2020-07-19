@@ -1,6 +1,7 @@
 using Autofac;
 using DShop.Common.Types;
 using Microsoft.Extensions.Configuration;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace DShop.Common.Mongo
@@ -9,6 +10,8 @@ namespace DShop.Common.Mongo
     {
         public static void AddMongo(this ContainerBuilder builder)
         {
+            BsonDefaults.GuidRepresentation = GuidRepresentation.Standard;
+
             builder.Register(context =>
             {
                 var configuration = context.Resolve<IConfiguration>();
