@@ -1,11 +1,11 @@
-@url = http://localhost:5000
+@url = http://localhost:55514
 
 ### create discount
 POST {{url}}/discounts
 Content-Type: application/json
 
 {
-    "customerId": "ba0fbaf3-cba1-40e1-8000-73a8ab1135a9",
+    "customerId": "d9964eeb-8602-4553-bc09-0309c3f9ee73",
     "code": "PROMO",
     "percentage": 20
 }

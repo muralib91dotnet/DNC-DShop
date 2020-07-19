@@ -1,0 +1,43 @@
+//admin-token
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjNDQyYmU0NzBlNWQ0OGQ5OTJhZTBiNTJlOWRmMDRlNSIsInVuaXF1ZV9uYW1lIjoiYzQ0MmJlNDcwZTVkNDhkOTkyYWUwYjUyZTlkZjA0ZTUiLCJqdGkiOiIwNzdiYzU0YS01MmNmLTRmNTUtYmFlZi0wYjRmNzZmYjEwMmMiLCJpYXQiOiIxNTk1MTgzMjIzNTE2IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1OTUxODMyMjMsImV4cCI6MTU5NTE4NTAyMywiaXNzIjoiZHNob3AtaWRlbnRpdHktc2VydmljZSJ9.m_LvEHXu8weGLJWvh600SfHc7ahPfLMFSNVhG5AKfg0",
+  "refreshToken": "AQAAAAEAACcQAAAAEPxWE4eeQJjJLGWEycibpa2L4TPvazCkG2Knxsn8YTvF9kwcU7UPkPcvhqtEGPg",
+  "expires": 1595185023516,
+  "id": "c442be470e5d48d992ae0b52e9df04e5",
+  "role": "admin",
+  "claims": {}
+}
+
+//user-token
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkOTk2NGVlYjg2MDI0NTUzYmMwOTAzMDljM2Y5ZWU3MyIsInVuaXF1ZV9uYW1lIjoiZDk5NjRlZWI4NjAyNDU1M2JjMDkwMzA5YzNmOWVlNzMiLCJqdGkiOiI2NTRkYzYxZi05MGYxLTQ0ZTUtOGJhYi0xODg0ZGRkYjMwMWEiLCJpYXQiOiIxNTk1MTg0NDUyNTkwIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoidXNlciIsIm5iZiI6MTU5NTE4NDQ1MiwiZXhwIjoxNTk1MTg2MjUyLCJpc3MiOiJkc2hvcC1pZGVudGl0eS1zZXJ2aWNlIn0.Kbs1f-P6G_loLO5ecenEjRbgwcdbO8L0A-j23HRaeTA",
+  "refreshToken": "AQAAAAEAACcQAAAAEDLSyIm0wadQZ5BC3phYV0pwAWT5KIMbqTB0lxZEaZMtfVLpYSXvTd4ExpuCNotKw",
+  "expires": 1595186252590,
+  "id": "d9964eeb86024553bc090309c3f9ee73",
+  "role": "user",
+  "claims": {}
+}
+
+//Products
+[
+  {
+    "id": "785234bf-13be-477d-b8a4-b9fd71c09e88",
+    "name": "laptop",
+    "description": "wishlist laptop",
+    "vendor": "dell",
+    "price": 2400.0,
+    "quantity": 4
+  }
+]
+
+//Orders
+[
+  {
+    "id": "916e9b57-09e4-4fc5-9e60-f35448a96b08",
+    "customerId": "d9964eeb-8602-4553-bc09-0309c3f9ee73",
+    "totalAmount": 2400.0,
+    "currency": "USD",
+    "status": "created",
+    "itemsCount": 1
+  }
+]
