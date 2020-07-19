@@ -40,7 +40,7 @@ namespace DShop.Services.Discounts.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post(CreateDiscount command)
+        public async Task<ActionResult> Post(CreateDiscount command) //NOTE: By default given Param type will be expected from request Body
         {
             await _dispatcher.SendAsync(command.BindId(c => c.Id));
 
