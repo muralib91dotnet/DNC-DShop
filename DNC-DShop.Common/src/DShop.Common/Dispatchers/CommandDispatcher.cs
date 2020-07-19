@@ -15,6 +15,7 @@ namespace DShop.Common.Dispatchers
             _context = context;
         }
 
+        //IMPORTANT: method which invokes the registered Handler for the given command
         public async Task SendAsync<T>(T command) where T : ICommand
             => await _context.Resolve<ICommandHandler<T>>().HandleAsync(command, CorrelationContext.Empty);
     }
