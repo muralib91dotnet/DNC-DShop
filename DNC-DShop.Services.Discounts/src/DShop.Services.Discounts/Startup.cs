@@ -36,7 +36,9 @@ namespace DShop.Services.Discounts
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            //NOTE: AddCustomMvc is custom Extension method which injects the necessary dependencies, instead of adding bulk of references using single Aspnet.Core.App package
             services.AddCustomMvc();
+            //Seeddata extension
             services.AddInitializers(typeof(IMongoDbInitializer));
             services.AddConsul();
             services.AddJaeger();
@@ -44,9 +46,14 @@ namespace DShop.Services.Discounts
             services.AddTransient<IMetricsRegistry, MetricsRegistry>();
 
             var builder = new ContainerBuilder();
+            //Scans & registers all the interfaces defined in the current assembly with the concrete types implementing.
+            //Eg: Here it registers ICustomerRepository, IDiscountsRepository.
+            //NOTE: Since this registers all interfaces in current assembly, it might register unwanted interfaces also
             builder.RegisterAssemblyTypes(typeof(Startup).Assembly)
                 .AsImplementedInterfaces();
             builder.Populate(services);
+
+            //For sending commands
             builder.AddDispatchers();
             builder.AddMongo();
             builder.AddMongoRepository<Customer>("Customers");
@@ -76,6 +83,7 @@ namespace DShop.Services.Discounts
                 .SubscribeEvent<OrderCompleted>(@namespace: "orders");
             var serviceId = app.UseConsul();
 
+            //NOTE: Container getting disposed on STOP of application & closes all Connections like Sql, File-reader & any other memory resources used etc
             applicationLifetime.ApplicationStopped.Register(() =>
             {
                 consulClient.Agent.ServiceDeregister(serviceId);
