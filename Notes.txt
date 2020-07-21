@@ -11,3 +11,7 @@ By default, RawRabbit uses the Default routing key as the name of the message(co
 Eg: [MessageNamespace("customers")] in CreateCustomer.cs
 This namespace,identifies given type as command between different microservices, while each microservice(sender/receiver microservice) defines this Class again within each of its assemblies instead of keeping the Command/Query class as common assembly,
 which maintains the SoC & decoupling of microservices
+
+Here we have Commands/Queries, passed as messages across Microservices. Such command/query messages are passed in 2 formats here,
+1 - Messages for implementing CQRS pattern. CommandDispatcher.cs/Dispatcher.cs sends the message(command/query)& ICommandHandler implementing classes are subscribers and Handle the messages. 
+2 - Messages for RawRabbit message bus, which is an encapsulation over RabbitMq with some inbuilt features like retry, etc. BusPublisher.cs sends the message(command/query) & BusSubscriber.cs(ICommandHandler implementing class) is the generic subscriber and Handle the message.

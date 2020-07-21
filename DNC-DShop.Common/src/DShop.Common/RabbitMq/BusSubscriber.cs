@@ -36,6 +36,7 @@ namespace DShop.Common.RabbitMq
             _retryInterval = options.RetryInterval > 0 ? options.RetryInterval : 2;
         }
 
+        //This generic method used to subscribe to commands from service bus, & not to the in-memory commands from CommandDispatcher
         public IBusSubscriber SubscribeCommand<TCommand>(string @namespace = null, string queueName = null,
             Func<TCommand, DShopException, IRejectedEvent> onError = null)
             where TCommand : ICommand
