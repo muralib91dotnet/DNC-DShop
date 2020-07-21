@@ -5,3 +5,9 @@ DNC-DShop.Api/DNC-DShop.Api.Next to start with
 Plus 7 Apis,
 starting as DNC-DShop.Services.{API-Name}
 
+RabbitMq/RawRabbit Service bus - Notes:
+By default, RawRabbit uses the Default routing key as the name of the message(command/query)assembly. Therefore, to pass Class type(Command/Query class) itself as a SB message, we use,
+'MessageNamespace' attribute along with string name as parameter. This string name is mentioned as "namespace":"namespace-name" in appsettings, under rabbitMq section.
+Eg: [MessageNamespace("customers")] in CreateCustomer.cs
+This namespace,identifies given type as command between different microservices, while each microservice(sender/receiver microservice) defines this Class again within each of its assemblies instead of keeping the Command/Query class as common assembly,
+which maintains the SoC & decoupling of microservices
